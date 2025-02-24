@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Professional - Reedsec</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #ffffff;
+            background-color: #1a0033; /* Deep purple background */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px; /* Minimal padding for premium tightness */
+        }
+
+        nav {
+            background-color: #2d0057; /* Rich dark purple */
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #00cc00; /* Vibrant green */
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #00cc00;
+            font-size: 1.6rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00cc00;
+            transform: scale(1.05);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #2d0057, #1a0033);
+            padding: 60px 0 2rem;
+        }
+
+        .hero-content {
+            text-align: center;
+            width: 100%;
+            padding: 1.5rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem; /* Adjusted to fit in a single line */
+            margin-bottom: 0.8rem;
+            color: #00cc00;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 6px rgba(0, 204, 0, 0.4);
+            white-space: nowrap; /* Ensures single line */
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            color: #ffffff;
+            font-weight: 600;
+            opacity: 0.95;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #00cc00;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 204, 0, 0.3);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            padding: 0 15px;
+            align-items: center; /* Centers cards vertically in the grid */
+        }
+
+        .card {
+            background-color: #2d0057;
+            padding: 1.8rem;
+            border-radius: 10px;
+            border: 2px solid #00cc00;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 204, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centers content vertically within the card */
+            align-items: center; /* Centers content horizontally within the card */
+            min-height: 200px; /* Ensures consistent height for alignment */
+            text-align: center; /* Ensures all text within the card is centered */
+        }
+
+        .card h3 {
+            color: #00cc00;
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0 0.5rem; /* Maintains slight padding for balance */
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            flex-grow: 1; /* Allows descriptions to expand evenly */
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 6px 20px rgba(0, 204, 0, 0.25);
+        }
+
+        .about-content {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            padding: 0 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .about-text p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .skills {
+            flex: 1;
+        }
+
+        .skill-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: #4b0091;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid #00cc00;
+        }
+
+        .skill-level {
+            height: 100%;
+            background-color: #00cc00;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #2d0057;
+            padding: 2.5rem 0;
+            border-top: 2px solid #00cc00;
+            text-align: center;
+        }
+
+        footer h2 {
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            margin: 0.3rem 0;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem; /* Adjusted for mobile to fit single line */
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 1.2rem;
+                min-height: 180px; /* Reduced for mobile consistency */
+            }
+
+            .card h3 {
+                font-size: 1.2rem;
+            }
+
+            .grid {
+                gap: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem; /* Further reduced for small screens */
+            }
+
+            .hero-text p {
+                font-size: 0.9rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .card h3 {
+                font-size: 1rem;
+            }
+
+            .card {
+                padding: 1rem;
+                min-height: 160px; /* Further reduced for small screens */
+            }
+
+            .grid {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">Reedsec</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Secure Your Digital Future</h1>
+                <p>Expert cybersecurity professional with overall 5 + years of experience protecting businesses from digital threats.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="container">
+            <h2>Whoami</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm Akshay aka Reedsec, a certified cybersecurity professional with a passion for safeguarding digital assets. With morethan 5+ years of experience, I've helped numerous organizations strengthen their security against evolving threats.
+					My expertise spans Netsec vapt, security architecture review, security audits and personalized cybersecurity training
+					</p>
+                    
+                </div>
+                <div class="skills">
+                    <div class="skill-item">
+                        <p>Netsec VAPT</p>
+                        <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Security Audits</p>
+                        <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>One-on-One Mentorship</p>
+                        <div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="container">
+            <h2>Areas of Expertise</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Network Security</h3>
+                    <p>Comprehensive network assessments and security to protect your infrastructure.</p>
+                </div>
+                <div class="card">
+                    <h3>Cloud Security</h3>
+                    <p>Secure cloud infrastructure with expert reviews and monitoring.</p>
+                </div>
+                <div class="card">
+                    <h3>Vulnerability Assessment</h3>
+                    <p>Identify security vulnerabilities in your systems and networks.</p>
+                </div>
+                <div class="card">
+                    <h3>Vulnerability Management</h3>
+                    <p>Manage and mitigate vulnerabilities with ongoing monitoring and remediation.</p>
+                </div>
+                <div class="card">
+                    <h3>Black Box Testing</h3>
+                    <p>External testing to simulate real-world attacks.</p>
+                </div>
+                <div class="card">
+                    <h3>White Box Testing</h3>
+                    <p>Internal testing for comprehensive security analysis.</p>
+                </div>
+                <div class="card">
+                    <h3>Threat Intelligence</h3>
+                    <p>Proactive threat hunting to mitigate risks.</p>
+                </div>
+                <div class="card">
+                    <h3>Security Consulting</h3>
+                    <p>Customized cybersecurity strategy development.</p>
+                </div>
+                <div class="card">
+                    <h3>ATM Security Assessment</h3>
+                    <p>Specialized testing for ATM systems.</p>
+                </div>
+                <div class="card">
+                    <h3>Container Security</h3>
+                    <p>Secure containerized applications and workflows.</p>
+                </div>
+                <div class="card">
+                    <h3>Application Security</h3>
+                    <p>Protect applications from vulnerabilities and threats through testing and monitoring.</p>
+                </div>
+                <div class="card">
+                    <h3>Security Audits</h3>
+                    <p>Comprehensive audits to ensure compliance and identify security gaps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Why Choose Me</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Proven Track Record</h3>
+                    <p>Protected almost 70+ organizations by giving security services.</p>
+                </div>
+                <div class="card">
+                    <h3>24/7 Support</h3>
+                    <p>Constant availability for emergency response and security needs.</p>
+                </div>
+                <div class="card">
+                    <h3>Virtual SME</h3>
+                    <p>Ongoing security guidance and service with insightful actions as a virtual expert.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Email: akp70129@gmail.com</p>
+			<P>Signal: @Readsec</p>
+            <p>© 2025 Reedsec - All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
