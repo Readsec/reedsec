@@ -120,6 +120,9 @@
       text-align: center;
       margin-bottom: 20px;
       transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 10px;
     }
 
     .service-item:hover {
@@ -166,6 +169,27 @@
       text-decoration: underline;
       color: #ff00ff;
     }
+
+    /* Custom Grid Layout */
+    .custom-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .custom-grid-item {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .custom-grid-item:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+    }
   </style>
 </head>
 <body>
@@ -195,52 +219,52 @@
   <section class="services-section">
     <div class="container">
       <h2 id="expertise" class="text-center mb-4 clickable">Areas of Expertise</h2>
-      <div id="expertise-details" class="row hidden">
-        <div class="col-md-4 service-item">
+      <div id="expertise-details" class="custom-grid hidden">
+        <div class="custom-grid-item">
           <h5>Network Security</h5>
           <p>Protect your infrastructure.</p>
         </div>
-        <div class="col-md-4 service-item">
+        <div class="custom-grid-item">
           <h5>Cloud Security</h5>
           <p>Secure cloud systems.</p>
         </div>
-        <div class="col-md-4 service-item">
+        <div class="custom-grid-item">
           <h5>Vulnerability Assessment</h5>
           <p>Identify weaknesses.</p>
         </div>
-        <div class="col-md-4 service-item">
+        <div class="custom-grid-item">
           <h5>Vulnerability Management</h5>
           <p>Mitigate risks.</p>
         </div>
-        <div class="col-md-4 service-item">
+        <div class="custom-grid-item">
           <h5>Black Box Testing</h5>
           <p>Simulate attacks.</p>
         </div>
-        <div class="col-md-4 service-item">
+        <div class="custom-grid-item">
           <h5>White Box Testing</h5>
           <p>Deep analysis.</p>
         </div>
-        <div class="col-md-4 service-item">
+        <div class="custom-grid-item">
           <h5>Threat Intelligence</h5>
           <p>Hunt threats.</p>
         </div>
-        <div class="col-md-4 service-item">
+        <div class="custom-grid-item">
           <h5>Security Consulting</h5>
           <p>Custom strategies.</p>
         </div>
-        <div class="col-md-4 service-item">
+        <div class="custom-grid-item">
           <h5>ATM Security</h5>
           <p>ATM testing.</p>
         </div>
-        <div class="col-md-4 service-item">
+        <div class="custom-grid-item">
           <h5>Container Security</h5>
           <p>Secure containers.</p>
         </div>
-        <div class="col-md-4 service-item">
+        <div class="custom-grid-item">
           <h5>Application Security</h5>
           <p>Protect apps.</p>
         </div>
-        <div class="col-md-4 service-item">
+        <div class="custom-grid-item">
           <h5>Security Audits</h5>
           <p>Ensure compliance.</p>
         </div>
@@ -361,7 +385,7 @@ My expertise lies in Vulnerability Assessment and Penetration Testing (VAPT), se
         // Create and append expertise items one by one
         expertiseItems.forEach((item, index) => {
           const div = document.createElement('div');
-          div.className = 'col-md-4 service-item glitch';
+          div.className = 'custom-grid-item';
           expertiseDetails.appendChild(div);
 
           // Add typewriter effect for title
