@@ -138,7 +138,7 @@
     }
 
     .custom-grid-item {
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0, 0.2);
       padding: 20px;
       border-radius: 10px;
       text-align: center;
@@ -178,106 +178,204 @@
     .services-section {
       margin-top: 50px; /* Adjust Areas of Expertise section to be lower */
     }
+
+    /* Game Container */
+    .game-container {
+      text-align: center;
+      opacity: 1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .game-message {
+      margin-bottom: 20px;
+    }
+
+    .command-input-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    #commandInput {
+      width: 200px;
+      padding: 5px;
+      font-family: 'Courier New', monospace;
+      background-color: #000;
+      color: #0f0;
+      border: 1px solid #0f0;
+      text-align: center;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 5px 10px;
+      font-family: 'Courier New', monospace;
+      background-color: #0f0;
+      color: #000;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #00ff00;
+    }
+
+    #result {
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <h1 class="hero-title">Secure Your Digital Future</h1>
-      <p class="hero-tagline">Expert cybersecurity professional with over 5 years of experience protecting businesses from digital threats.</p>
+  <div id="gameContainer" class="game-container">
+    <div class="game-message">Type the secret command to gain access:</div>
+    <div class="command-input-container">
+      <input type="text" id="commandInput" placeholder="Enter command">
+      <button onclick="checkCommand()">Submit</button>
     </div>
-  </section>
+    <div id="result"></div>
+  </div>
 
-  <!-- About Section -->
-  <section class="about-section">
-    <div class="container">
-      <h2 id="whoami" class="text-center">Whoami</h2>
-      <p id="whoami-text" class="text-center">
-        I'm Akshay, also known as Reedsec, a seasoned cybersecurity professional with over five years of hands-on experience in securing digital assets against ever-evolving cyber threats.  
-        My expertise lies in Vulnerability Assessment and Penetration Testing (VAPT), security audits, and cybersecurity training. I specialize in identifying and mitigating security vulnerabilities, ensuring compliance with industry standards, and empowering organizations with robust security frameworks. Through continuous research, hands-on assessments, and knowledge sharing, I am committed to strengthening cybersecurity resilience in an increasingly complex digital landscape.
-      </p>
-    </div>
-  </section>
+  <div id="content" style="display: none;">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title">Secure Your Digital Future</h1>
+        <p class="hero-tagline">Expert cybersecurity professional with over 5 years of experience protecting businesses from digital threats.</p>
+      </div>
+    </section>
 
-  <!-- Services Section -->
-  <section class="services-section">
-    <div class="container">
-      <h2 id="expertise" class="text-center mb-4">Areas of Expertise</h2>
-      <div class="custom-grid">
-        <div class="custom-grid-item">
-          <h5>Network Security</h5>
-          <p>Protect your infrastructure.</p>
-        </div>
-        <div class="custom-grid-item">
-          <h5>Cloud Security</h5>
-          <p>Secure cloud systems.</p>
-        </div>
-        <div class="custom-grid-item">
-          <h5>Vulnerability Assessment</h5>
-          <p>Identify weaknesses.</p>
-        </div>
-        <div class="custom-grid-item">
-          <h5>Vulnerability Management</h5>
-          <p>Mitigate risks.</p>
-        </div>
-        <div class="custom-grid-item">
-          <h5>Black Box Testing</h5>
-          <p>Simulate attacks.</p>
-        </div>
-        <div class="custom-grid-item">
-          <h5>White Box Testing</h5>
-          <p>Deep analysis.</p>
-        </div>
-        <div class="custom-grid-item">
-          <h5>Threat Intelligence</h5>
-          <p>Hunt threats.</p>
-        </div>
-        <div class="custom-grid-item">
-          <h5>Security Consulting</h5>
-          <p>Custom strategies.</p>
-        </div>
-        <div class="custom-grid-item">
-          <h5>ATM Security</h5>
-          <p>ATM testing.</p>
-        </div>
-        <div class="custom-grid-item">
-          <h5>Container Security</h5>
-          <p>Secure containers.</p>
-        </div>
-        <div class="custom-grid-item">
-          <h5>Application Security</h5>
-          <p>Protect apps.</p>
-        </div>
-        <div class="custom-grid-item">
-          <h5>Security Audits</h5>
-          <p>Ensure compliance.</p>
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="container">
+        <h2 id="whoami" class="text-center">Whoami</h2>
+        <p id="whoami-text" class="text-center">
+          I'm Akshay, also known as Reedsec, a seasoned cybersecurity professional with over five years of hands-on experience in securing digital assets against ever-evolving cyber threats. My expertise lies in Vulnerability Assessment and Penetration Testing (VAPT), security audits, and cybersecurity training. I specialize in identifying and mitigating security vulnerabilities, ensuring compliance with industry standards, and empowering organizations with robust security frameworks. Through continuous research, hands-on assessments, and knowledge sharing, I am committed to strengthening cybersecurity resilience in an increasingly complex digital landscape.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+      <div class="container">
+        <h2 id="expertise" class="text-center mb-4">Areas of Expertise</h2>
+        <div class="custom-grid">
+          <div class="custom-grid-item">
+            <h5>Network Security</h5>
+            <p>Protect your infrastructure.</p>
+          </div>
+          <div class="custom-grid-item">
+            <h5>Cloud Security</h5>
+            <p>Secure cloud systems.</p>
+          </div>
+          <div class="custom-grid-item">
+            <h5>Vulnerability Assessment</h5>
+            <p>Identify weaknesses.</p>
+          </div>
+          <div class="custom-grid-item">
+            <h5>Vulnerability Management</h5>
+            <p>Mitigate risks.</p>
+          </div>
+          <div class="custom-grid-item">
+            <h5>Black Box Testing</h5>
+            <p>Simulate attacks.</p>
+          </div>
+          <div class="custom-grid-item">
+            <h5>White Box Testing</h5>
+            <p>Deep analysis.</p>
+          </div>
+          <div class="custom-grid-item">
+            <h5>Threat Intelligence</h5>
+            <p>Hunt threats.</p>
+          </div>
+          <div class="custom-grid-item">
+            <h5>Security Consulting</h5>
+            <p>Custom strategies.</p>
+          </div>
+          <div class="custom-grid-item">
+            <h5>ATM Security</h5>
+            <p>ATM testing.</p>
+          </div>
+          <div class="custom-grid-item">
+            <h5>Container Security</h5>
+            <p>Secure containers.</p>
+          </div>
+          <div class="custom-grid-item">
+            <h5>Application Security</h5>
+            <p>Protect apps.</p>
+          </div>
+          <div class="custom-grid-item">
+            <h5>Security Audits</h5>
+            <p>Ensure compliance.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Blogs Section -->
-  <section class="blogs-section">
-    <div class="container">
-      <h2 class="text-center">Blogs</h2>
-      <div class="blog-links">
-        <a href="https://medium.com/@Readsec" target="_blank">Medium</a>
-        <a href="https://www.linkedin.com/in/akshaykumar70129" target="_blank">LinkedIn</a>
+    <!-- Blogs Section -->
+    <section class="blogs-section">
+      <div class="container">
+        <h2 class="text-center">Blogs</h2>
+        <div class="blog-links">
+          <a href="https://medium.com/@Readsec" target="_blank">Medium</a>
+          <a href="https://www.linkedin.com/in/akshaykumar70129" target="_blank">LinkedIn</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Reedsec</p>
-      <div>
-        <a href="mailto:akp70129@gmail.com">Email Me</a> |
-        <a href="https://signal.me/#p/@Reedsec" target="_blank">Signal: @Reedsec</a>
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Reedsec</p>
+        <div>
+          <a href="mailto:akp70129@gmail.com">Email Me</a> |
+          <a href="https://signal.me/#p/@Reedsec" target="_blank">Signal: @Reedsec</a>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
+
+  <script>
+    const gameContainer = document.getElementById('gameContainer');
+    const commandInput = document.getElementById('commandInput');
+    const resultDiv = document.getElementById('result');
+    const content = document.getElementById('content');
+
+    // Define the secret command
+    const secretCommand = 'getelementbyid';
+
+    let attempts = 0;
+    const maxAttempts = 3;
+
+    function checkCommand() {
+      const userCommand = commandInput.value.trim().toLowerCase();
+      resultDiv.textContent = '';
+
+      if (userCommand === secretCommand) {
+        resultDiv.textContent = 'Access Granted!';
+        gameContainer.style.display = 'none';
+        content.style.display = 'block';
+      } else {
+        attempts++;
+        resultDiv.textContent = 'Access Denied! Try again.';
+
+        if (attempts >= maxAttempts) {
+          commandInput.disabled = true;
+          resultDiv.textContent += ' You have reached the maximum number of attempts.';
+        }
+      }
+    }
+  </script>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
