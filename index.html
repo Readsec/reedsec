@@ -1,393 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybersecurity Professional - Reedsec</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        body {
-            background-color: #1a0033;
-            color: #ffffff;
-            font-family: 'Courier New', monospace;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersecurity Professional - Reedsec</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom Hacker Theme */
+    body {
+      font-family: 'Courier New', monospace;
+      background: #1a0029; /* Deep purple */
+      color: #00ff00; /* Neon green */
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
 
-        /* Navbar */
-        .navbar {
-            background-color: #2d0057;
-            border-bottom: 2px solid #00cc00;
-            padding: 0.5rem 1rem;
-        }
+    h1, h2, h3, h4, h5, h6 {
+      color: #00ff00; /* Neon green */
+      text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+    }
 
-        .navbar-brand {
-            color: #00cc00 !important;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 1.2rem;
-        }
+    a {
+      color: #00ff00;
+      text-decoration: none;
+    }
 
-        .navbar-brand:hover {
-            text-shadow: 0 0 8px #00cc00;
-        }
+    a:hover {
+      text-decoration: underline;
+      color: #ff00ff; /* Purple */
+    }
 
-        .navbar-nav .nav-link {
-            color: #ffffff !important;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
+    .hero-section {
+      background: linear-gradient(135deg, #2c3e50, #4ca1af);
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
 
-        .navbar-nav .nav-link:hover {
-            color: #00cc00 !important;
-        }
+    .hero-title {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #2d0057, #1a0033);
-            padding: 2rem 1rem;
-            text-align: center;
-            min-height: 40vh; /* Ensure some height but flexible */
-        }
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+    }
 
-        .hero h1 {
-            color: #00cc00;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0, 204, 0, 0.4);
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            overflow: hidden;
-            white-space: normal;
-            word-wrap: break-word;
-            max-width: 100%;
-        }
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.5rem;
+      }
+    }
 
-        .hero p {
-            font-weight: 500;
-            font-size: 0.9rem;
-            max-width: 80%;
-            margin: 0 auto;
-        }
+    .about-section, .services-section, .blog-section {
+      padding: 40px 0;
+    }
 
-        /* Typing Animation Styling */
-        .typing {
-            border-right: 2px solid #00cc00;
-            animation: blink 1s infinite;
-        }
+    .service-item {
+      text-align: center;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
 
-        /* Sections */
-        .section {
-            padding: 2rem 1rem;
-            opacity: 0;
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
+    .service-item:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+    }
 
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
 
-        .section h2 {
-            color: #00cc00;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-align: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
+    .footer a {
+      color: #00ff00;
+    }
 
-        .section h2::before {
-            content: '>> ';
-            animation: blink 1s infinite;
-        }
+    .footer a:hover {
+      text-decoration: underline;
+      color: #ff00ff;
+    }
 
-        /* Cards */
-        .card {
-            background-color: #2d0057;
-            border: 2px solid #00cc00;
-            color: #ffffff;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            padding: 1rem;
-        }
+    .blog-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 204, 0, 0.3);
-        }
+    .blog-links a {
+      color: #00ff00;
+      font-weight: bold;
+      text-decoration: none;
+    }
 
-        .card h3 {
-            color: #00cc00;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
+    .blog-links a:hover {
+      text-decoration: underline;
+      color: #ff00ff;
+    }
 
-        .card p {
-            font-size: 0.8rem;
-        }
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
 
-        /* Skills */
-        .skill-bar {
-            height: 5px;
-            background-color: #4b0091;
-            border-radius: 3px;
-            border: 1px solid #00cc00;
-            margin-top: 0.5rem;
-        }
+    /* Matrix Rain Animation */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
 
-        .skill-level {
-            height: 100%;
-            background-color: #00cc00;
-            border-radius: 3px;
-            transition: width 1.5s ease-in-out;
-        }
+    /* Glitch Effect */
+    .glitch {
+      position: relative;
+      color: #00ff00;
+      font-size: 3rem;
+      animation: glitch 1s infinite;
+    }
 
-        /* Footer */
-        footer {
-            background-color: #2d0057;
-            border-top: 2px solid #00cc00;
-            padding: 1.5rem 1rem;
-            text-align: center;
-        }
-
-        footer h2 {
-            font-size: 1.5rem;
-            color: #00cc00;
-            margin-bottom: 1rem;
-        }
-
-        footer p {
-            font-size: 0.9rem;
-            margin: 0.3rem 0;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 1.5rem 0.5rem;
-                min-height: 30vh;
-            }
-            .hero h1 {
-                font-size: 1.4rem;
-            }
-            .hero p {
-                font-size: 0.8rem;
-                max-width: 90%;
-            }
-            .section h2 {
-                font-size: 1.3rem;
-            }
-            .card h3 {
-                font-size: 1rem;
-            }
-            .card p {
-                font-size: 0.75rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 1rem 0.5rem;
-                min-height: 25vh;
-            }
-            .hero h1 {
-                font-size: 1.2rem;
-                line-height: 1.2;
-            }
-            .hero p {
-                font-size: 0.7rem;
-            }
-            .section h2 {
-                font-size: 1.2rem;
-            }
-            .navbar-brand {
-                font-size: 1rem;
-            }
-            .navbar-nav .nav-link {
-                font-size: 0.8rem;
-            }
-        }
-
-        @media (min-width: 1440px) {
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-        }
-    </style>
+    @keyframes glitch {
+      0% {
+        text-shadow: 2px 2px 5px #ff00ff, -2px -2px 5px #00ff00;
+      }
+      25% {
+        text-shadow: -2px -2px 5px #ff00ff, 2px 2px 5px #00ff00;
+      }
+      50% {
+        text-shadow: 2px -2px 5px #ff00ff, -2px 2px 5px #00ff00;
+      }
+      75% {
+        text-shadow: -2px 2px 5px #ff00ff, 2px -2px 5px #00ff00;
+      }
+      100% {
+        text-shadow: 2px 2px 5px #ff00ff, -2px -2px 5px #00ff00;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Reedsec</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
+  <!-- Matrix Rain Canvas -->
+  <canvas id="matrixCanvas"></canvas>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1 class="hero-title glitch">Secure Your Future</h1>
+      <p>Expert cybersecurity professional with over 5 years of experience protecting businesses from threats.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="container">
+      <h2 class="text-center">Whoami</h2>
+      <p class="text-center">
+        I'm Akshay, also known as Reedsec, a seasoned cybersecurity professional with over five years of hands-on experience in securing assets against ever-evolving cyber threats.
+        My expertise lies in Vulnerability Assessment and Penetration Testing (VAPT), security audits, and cybersecurity training. I specialize in identifying and mitigating security vulnerabilities,
+        ensuring compliance with industry standards, and empowering organizations with robust security frameworks. Through continuous research, hands-on assessments, and knowledge sharing,
+        I am committed to strengthening cybersecurity resilience in an increasingly complex landscape.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section bg-dark">
+    <div class="container">
+      <h2 class="text-center mb-4">Areas of Expertise</h2>
+      <div class="row">
+        <div class="col-md-4 service-item">
+          <h5>Network Security</h5>
+          <p>Protect your infrastructure.</p>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1 id="hero-title" class="typing">Secure Your Future</h1>
-            <p>Expert cybersecurity professional with over 5 years of experience protecting businesses from digital threats.</p>
+        <div class="col-md-4 service-item">
+          <h5>Cloud Security</h5>
+          <p>Secure cloud systems.</p>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section" id="about">
-        <div class="container">
-            <h2>Whoami</h2>
-            <div class="row">
-                <div class="col-md-8 col-12 mb-3">
-                    <p>I'm Akshay, also known as Reedsec, a seasoned cybersecurity professional with over five years of hands-on experience in securing digital assets against ever-evolving cyber threats. My expertise lies in Vulnerability Assessment and Penetration Testing (VAPT), security audits, and cybersecurity training. I specialize in identifying and mitigating security vulnerabilities, ensuring compliance with industry standards, and empowering organizations with robust security frameworks. Through continuous research, hands-on assessments, and knowledge sharing, I am committed to strengthening cybersecurity resilience in an increasingly complex digital landscape.</p>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="mb-3">
-                        <p>Netsec VAPT</p>
-                        <div class="skill-bar"><div class="skill-level" style="width: 0;" data-width="90%"></div></div>
-                    </div>
-                    <div class="mb-3">
-                        <p>Security Audits</p>
-                        <div class="skill-bar"><div class="skill-level" style="width: 0;" data-width="85%"></div></div>
-                    </div>
-                    <div class="mb-3">
-                        <p>Mentorship</p>
-                        <div class="skill-bar"><div class="skill-level" style="width: 0;" data-width="95%"></div></div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-4 service-item">
+          <h5>Vulnerability Assessment</h5>
+          <p>Identify weaknesses.</p>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="section" id="services">
-        <div class="container">
-            <h2>Areas of Expertise</h2>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
-                <div class="col"><div class="card"><h3>Network Security</h3><p>Protect your infrastructure.</p></div></div>
-                <div class="col"><div class="card"><h3>Cloud Security</h3><p>Secure cloud systems.</p></div></div>
-                <div class="col"><div class="card"><h3>Vuln Assessment</h3><p>Identify weaknesses.</p></div></div>
-                <div class="col"><div class="card"><h3>Vuln Management</h3><p>Mitigate risks.</p></div></div>
-                <div class="col"><div class="card"><h3>Black Box Testing</h3><p>Simulate attacks.</p></div></div>
-                <div class="col"><div class="card"><h3>White Box Testing</h3><p>Deep analysis.</p></div></div>
-                <div class="col"><div class="card"><h3>Threat Intel</h3><p>Hunt threats.</p></div></div>
-                <div class="col"><div class="card"><h3>Security Consulting</h3><p>Custom strategies.</p></div></div>
-                <div class="col"><div class="card"><h3>ATM Security</h3><p>ATM testing.</p></div></div>
-                <div class="col"><div class="card"><h3>Container Security</h3><p>Secure containers.</p></div></div>
-                <div class="col"><div class="card"><h3>App Security</h3><p>Protect apps.</p></div></div>
-                <div class="col"><div class="card"><h3>Security Audits</h3><p>Ensure compliance.</p></div></div>
-            </div>
+        <div class="col-md-4 service-item">
+          <h5>Vulnerability Management</h5>
+          <p>Mitigate risks.</p>
         </div>
-    </section>
-
-    <!-- Why Choose Me Section -->
-    <section class="section">
-        <div class="container">
-            <h2>Why Choose Me</h2>
-            <div class="row row-cols-1 row-cols-md-3 g-3">
-                <div class="col"><div class="card"><h3>Proven Record</h3><p>Secured 70+ orgs.</p></div></div>
-                <div class="col"><div class="card"><h3>24/7 Support</h3><p>Always available.</p></div></div>
-                <div class="col"><div class="card"><h3>Virtual SME</h3><p>Expert guidance.</p></div></div>
-            </div>
+        <div class="col-md-4 service-item">
+          <h5>Black Box Testing</h5>
+          <p>Simulate attacks.</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <p>Email: akp70129@gmail.com</p>
-            <p>Signal: @Reedsec</p>
-            <p>© 2025 Reedsec</p>
+        <div class="col-md-4 service-item">
+          <h5>White Box Testing</h5>
+          <p>Deep analysis.</p>
         </div>
-    </footer>
+        <div class="col-md-4 service-item">
+          <h5>Threat Intelligence</h5>
+          <p>Hunt threats.</p>
+        </div>
+        <div class="col-md-4 service-item">
+          <h5>Security Consulting</h5>
+          <p>Custom strategies.</p>
+        </div>
+        <div class="col-md-4 service-item">
+          <h5>ATM Security</h5>
+          <p>ATM testing.</p>
+        </div>
+        <div class="col-md-4 service-item">
+          <h5>Container Security</h5>
+          <p>Secure containers.</p>
+        </div>
+        <div class="col-md-4 service-item">
+          <h5>Application Security</h5>
+          <p>Protect apps.</p>
+        </div>
+        <div class="col-md-4 service-item">
+          <h5>Security Audits</h5>
+          <p>Ensure compliance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- Custom JavaScript -->
-    <script>
-        // Typing Animation for Hero Title
-        const title = document.getElementById('hero-title');
-        const text = title.textContent;
-        title.textContent = '';
-        let i = 0;
+  <!-- Blog Section -->
+  <section class="blog-section">
+    <div class="container">
+      <h2 class="text-center">Blog</h2>
+      <div class="blog-links">
+        <a href="https://medium.com/@Readsec" target="_blank">Medium</a>
+        <a href="https://www.linkedin.com/in/akshaykumar70129" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </section>
 
-        function typeWriter() {
-            if (i < text.length) {
-                title.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            } else {
-                title.classList.remove('typing'); // Remove blinking cursor
-            }
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Reedsec</p>
+      <div>
+        <a href="mailto:akp70129@gmail.com">Email Me</a> |
+        <a href="https://signal.me/#p/@Reedsec" target="_blank">Signal: @Reedsec</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Matrix Rain Animation Script -->
+  <script>
+    const canvas = document.getElementById('matrixCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Set canvas dimensions
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const fontSize = 16;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#00ff00';
+      ctx.font = `${fontSize}px monospace`;
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = String.fromCharCode(Math.random() * 128);
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height || Math.random() > 0.975) {
+          drops[i] = 0;
         }
-        setTimeout(typeWriter, 500);
 
-        // Smooth Scroll for Nav Links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
+        drops[i]++;
+      }
+    }
 
-        // Scroll Reveal for Sections
-        const sections = document.querySelectorAll('.section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
+    setInterval(drawMatrix, 50);
 
-        sections.forEach(section => {
-            section.style.transform = 'translateY(20px)';
-            observer.observe(section);
-        });
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
 
-        // Skill Bar Animation
-        const skillBars = document.querySelectorAll('.skill-level');
-        skillBars.forEach(bar => {
-            const width = bar.getAttribute('data-width');
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 500);
-        });
-    </script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
