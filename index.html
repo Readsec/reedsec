@@ -351,17 +351,16 @@
     const resultDiv = document.getElementById('result');
     const content = document.getElementById('content');
 
-    // Define the secret command
-    const secretCommand = 'getelementbyid';
+    const constf = 'getelementbyid';
 
     let attempts = 0;
     const maxAttempts = 3;
 
     function checkCommand() {
-      const userCommand = commandInput.value.trim().toLowerCase();
+      const constid = commandInput.value.trim().toLowerCase();
       resultDiv.textContent = '';
 
-      if (userCommand === secretCommand) {
+      if (constid === constf) {
         resultDiv.textContent = 'Access Granted!';
         gameContainer.style.display = 'none';
         content.style.display = 'block';
