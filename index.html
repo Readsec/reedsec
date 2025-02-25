@@ -4,85 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cybersecurity Professional - Reedsec</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
         body {
-            line-height: 1.6;
+            background-color: #1a0033; /* Deep purple background */
             color: #ffffff;
-            background-color: #1a0033;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 10px;
+            line-height: 1.6;
         }
 
         nav {
-            background-color: #2d0057;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid #00cc00;
+            background-color: #2d0057; /* Rich dark purple */
+            border-bottom: 2px solid #00cc00; /* Vibrant green */
         }
 
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            color: #00cc00;
-            font-size: 1.5rem;
+        .navbar-brand {
+            color: #00cc00 !important;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 0.9rem;
+        .navbar-nav .nav-link {
+            color: #ffffff !important;
             font-weight: 600;
-            transition: color 0.3s;
         }
 
-        .nav-links a:hover {
-            color: #00cc00;
+        .navbar-nav .nav-link:hover {
+            color: #00cc00 !important;
         }
 
         .hero {
             min-height: 100vh;
+            background: linear-gradient(135deg, #2d0057, #1a0033);
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #2d0057, #1a0033);
-            padding: 60px 0 2rem;
+            padding: 60px 0;
         }
 
-        .hero-content {
-            text-align: center;
-            width: 100%;
-            padding: 1rem;
-        }
-
-        .hero-text h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.8rem;
+        .hero h1 {
             color: #00cc00;
             font-weight: 800;
             text-transform: uppercase;
@@ -90,11 +51,7 @@
             text-shadow: 0 2px 6px rgba(0, 204, 0, 0.4);
         }
 
-        .hero-text p {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 1.5rem;
-            color: #ffffff;
+        .hero p {
             font-weight: 500;
             opacity: 0.95;
         }
@@ -104,72 +61,30 @@
         }
 
         .section h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
             color: #00cc00;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            padding: 0 10px;
+            text-align: center;
+            margin-bottom: 2rem;
         }
 
         .card {
             background-color: #2d0057;
-            padding: 1.5rem;
-            border-radius: 8px;
             border: 2px solid #00cc00;
-            transition: transform 0.3s;
-            box-shadow: 0 4px 12px rgba(0, 204, 0, 0.15);
+            color: #ffffff;
             text-align: center;
-        }
-
-        .card h3 {
-            color: #00cc00;
-            margin-bottom: 0.6rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .card p {
-            font-size: 0.85rem;
-            line-height: 1.4;
+            transition: transform 0.3s;
         }
 
         .card:hover {
             transform: translateY(-5px);
         }
 
-        .about-content {
-            display: flex;
-            gap: 1.5rem;
-            padding: 0 10px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .about-text {
-            flex: 2;
-        }
-
-        .about-text p {
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .skills {
-            flex: 1;
-        }
-
-        .skill-item {
-            margin-bottom: 1rem;
+        .card h3 {
+            color: #00cc00;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         .skill-bar {
@@ -188,145 +103,86 @@
 
         footer {
             background-color: #2d0057;
-            padding: 2rem 0;
             border-top: 2px solid #00cc00;
+            padding: 2rem 0;
             text-align: center;
         }
 
-        footer p {
-            margin: 0.3rem 0;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        /* Mobile Responsiveness */
+        /* Custom adjustments for Bootstrap */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* Hide nav links; consider adding a hamburger menu later */
-            }
-
-            .logo {
-                font-size: 1.3rem;
-            }
-
-            .hero-text h1 {
+            .hero h1 {
                 font-size: 1.8rem;
             }
 
-            .hero-text p {
+            .hero p {
                 font-size: 0.9rem;
-                max-width: 90%;
-            }
-
-            .section {
-                padding: 2rem 0;
             }
 
             .section h2 {
                 font-size: 1.6rem;
             }
-
-            .grid {
-                grid-template-columns: 1fr; /* Single column for better mobile layout */
-                gap: 1rem;
-            }
-
-            .card {
-                padding: 1rem;
-            }
-
-            .card h3 {
-                font-size: 1.1rem;
-            }
-
-            .card p {
-                font-size: 0.8rem;
-            }
-
-            .about-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .about-text p {
-                font-size: 0.9rem;
-            }
-
-            .skills {
-                width: 100%;
-            }
         }
 
         @media (max-width: 480px) {
-            .hero-text h1 {
+            .hero h1 {
                 font-size: 1.5rem;
             }
 
-            .hero-text p {
+            .hero p {
                 font-size: 0.8rem;
             }
 
             .section h2 {
                 font-size: 1.4rem;
             }
-
-            .card h3 {
-                font-size: 1rem;
-            }
-
-            .card p {
-                font-size: 0.75rem;
-            }
-
-            .container {
-                padding: 0 5px;
-            }
-
-            .hero {
-                padding: 50px 0 1rem;
-            }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="container nav-content">
-            <div class="logo">Reedsec</div>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#contact">Contact</a>
+    <!-- Navbar with Bootstrap -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Reedsec</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>Secure Your Digital Future</h1>
-                <p>Expert cybersecurity professional with over 5 years of experience protecting businesses from digital threats.</p>
-            </div>
+        <div class="container text-center">
+            <h1 class="display-4">Secure Your Digital Future</h1>
+            <p class="lead">Expert cybersecurity professional with over 5 years of experience protecting businesses from digital threats.</p>
         </div>
     </section>
 
+    <!-- About Section -->
     <section class="section" id="about">
         <div class="container">
             <h2>Whoami</h2>
-            <div class="about-content">
-                <div class="about-text">
+            <div class="row">
+                <div class="col-md-8">
                     <p>I'm Akshay, aka Reedsec, a certified cybersecurity professional with a passion for safeguarding digital assets. With over 5 years of experience, I've helped numerous organizations strengthen their security against evolving threats. My expertise spans network security VAPT, security architecture review, security audits, and personalized cybersecurity training.</p>
                 </div>
-                <div class="skills">
-                    <div class="skill-item">
+                <div class="col-md-4">
+                    <div class="mb-3">
                         <p>Netsec VAPT</p>
                         <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
                     </div>
-                    <div class="skill-item">
+                    <div class="mb-3">
                         <p>Security Audits</p>
                         <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
                     </div>
-                    <div class="skill-item">
+                    <div class="mb-3">
                         <p>One-on-One Mentorship</p>
                         <div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div>
                     </div>
@@ -335,82 +191,145 @@
         </div>
     </section>
 
+    <!-- Services Section -->
     <section class="section" id="services">
         <div class="container">
             <h2>Areas of Expertise</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Network Security</h3>
-                    <p>Comprehensive network assessments and security to protect your infrastructure.</p>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Network Security</h3>
+                            <p class="card-text">Comprehensive network assessments and security to protect your infrastructure.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Cloud Security</h3>
-                    <p>Secure cloud infrastructure with expert reviews and monitoring.</p>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Cloud Security</h3>
+                            <p class="card-text">Secure cloud infrastructure with expert reviews and monitoring.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Vulnerability Assessment</h3>
-                    <p>Identify security vulnerabilities in your systems and networks.</p>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Vulnerability Assessment</h3>
+                            <p class="card-text">Identify security vulnerabilities in your systems and networks.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Vulnerability Management</h3>
-                    <p>Manage and mitigate vulnerabilities with ongoing monitoring and remediation.</p>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Vulnerability Management</h3>
+                            <p class="card-text">Manage and mitigate vulnerabilities with ongoing monitoring and remediation.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Black Box Testing</h3>
-                    <p>External testing to simulate real-world attacks.</p>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Black Box Testing</h3>
+                            <p class="card-text">External testing to simulate real-world attacks.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>White Box Testing</h3>
-                    <p>Internal testing for comprehensive security analysis.</p>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">White Box Testing</h3>
+                            <p class="card-text">Internal testing for comprehensive security analysis.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Threat Intelligence</h3>
-                    <p>Proactive threat hunting to mitigate risks.</p>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Threat Intelligence</h3>
+                            <p class="card-text">Proactive threat hunting to mitigate risks.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Security Consulting</h3>
-                    <p>Customized cybersecurity strategy development.</p>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Security Consulting</h3>
+                            <p class="card-text">Customized cybersecurity strategy development.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>ATM Security Assessment</h3>
-                    <p>Specialized testing for ATM systems.</p>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">ATM Security Assessment</h3>
+                            <p class="card-text">Specialized testing for ATM systems.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Container Security</h3>
-                    <p>Secure containerized applications and workflows.</p>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Container Security</h3>
+                            <p class="card-text">Secure containerized applications and workflows.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Application Security</h3>
-                    <p>Protect applications from vulnerabilities and threats through testing and monitoring.</p>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Application Security</h3>
+                            <p class="card-text">Protect applications from vulnerabilities and threats through testing and monitoring.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Security Audits</h3>
-                    <p>Comprehensive audits to ensure compliance and identify security gaps.</p>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Security Audits</h3>
+                            <p class="card-text">Comprehensive audits to ensure compliance and identify security gaps.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Why Choose Me Section -->
     <section class="section">
         <div class="container">
             <h2>Why Choose Me</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Proven Track Record</h3>
-                    <p>Protected over 70 organizations by providing top-tier security services.</p>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Proven Track Record</h3>
+                            <p class="card-text">Protected over 70 organizations by providing top-tier security services.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>24/7 Support</h3>
-                    <p>Constant availability for emergency response and security needs.</p>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">24/7 Support</h3>
+                            <p class="card-text">Constant availability for emergency response and security needs.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Virtual SME</h3>
-                    <p>Ongoing security guidance and service with insightful actions as a virtual expert.</p>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Virtual SME</h3>
+                            <p class="card-text">Ongoing security guidance and service with insightful actions as a virtual expert.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer id="contact">
         <div class="container">
             <h2>Contact Me</h2>
@@ -419,5 +338,8 @@
             <p>© 2025 Reedsec - All Rights Reserved</p>
         </div>
     </footer>
+
+    <!-- Bootstrap JS (for navbar functionality) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
